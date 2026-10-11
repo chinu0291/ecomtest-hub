@@ -30,8 +30,9 @@ export default defineConfig({
   use: {
 
     // Website URL
-    baseURL: process.env.BASE_URL,
-
+baseURL:
+    process.env.BASE_URL ||
+    'https://www.automationexercise.com',
     // Take screenshot when test fails
     screenshot: 'only-on-failure',
 
