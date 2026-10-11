@@ -10,7 +10,12 @@ export const registrationData = {
 
     validName: 'Rahul Sharma',
 
+    // Generate a unique email for every test execution
     validEmail: `qa${Date.now()}@example.com`,
+
+    // Existing registered email for duplicate-email testing
+    // This value must be configured in .env or GitHub Actions
+    existingEmail: process.env.EXISTING_TEST_EMAIL ?? '',
 
     // =====================================================
     // ACCOUNT INFORMATION
@@ -54,49 +59,61 @@ export const registrationData = {
 
         mobileNumber: '9876543210'
 
-    } ,
-
-existingEmail: process.env.EXISTING_TEST_EMAIL ?? '',
+    }
 
 };
 
+
+// =====================================================
+// TC_REG_009 - MANDATORY ADDRESS FIELDS
+// =====================================================
+
 export const mandatoryAddressFields = [
+
     {
         fieldName: 'First Name',
         fieldKey: 'firstName',
         selector: '#first_name'
     },
+
     {
         fieldName: 'Last Name',
         fieldKey: 'lastName',
         selector: '#last_name'
     },
+
     {
         fieldName: 'Address',
         fieldKey: 'address',
         selector: '#address1'
     },
+
     {
         fieldName: 'State',
         fieldKey: 'state',
         selector: '#state'
     },
+
     {
         fieldName: 'City',
         fieldKey: 'city',
         selector: '#city'
     },
+
     {
         fieldName: 'ZIP Code',
         fieldKey: 'zipcode',
         selector: '#zipcode'
     },
+
     {
         fieldName: 'Mobile Number',
         fieldKey: 'mobileNumber',
         selector: '#mobile_number'
     }
+
 ] as const;
+
 
 // =====================================================
 // TC_REG_010 - REGISTRATION WITHOUT OPTIONAL FIELDS
@@ -122,6 +139,7 @@ export const registrationWithoutOptionalFields = {
 
 };
 
+
 // =====================================================
 // TC_REG_013 - DATE OF BIRTH TEST DATA
 // =====================================================
@@ -136,6 +154,7 @@ export const dateOfBirthTestData = {
 
 };
 
+
 // =====================================================
 // TC_REG_014 - COUNTRY DROPDOWN TEST DATA
 // =====================================================
@@ -143,9 +162,13 @@ export const dateOfBirthTestData = {
 export const countryDropdownTestData = {
 
     countries: [
+
         'India',
+
         'United States',
+
         'Canada'
+
     ]
 
 };

@@ -14,8 +14,10 @@ jobs:
 
     env:
       BASE_URL: https://www.automationexercise.com
+      EXISTING_TEST_EMAIL: ${{ vars.EXISTING_TEST_EMAIL }}
 
     steps:
+
       # Step 1: Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -38,7 +40,7 @@ jobs:
       - name: Run Playwright tests
         run: npx playwright test
 
-      # Step 6: Upload Playwright HTML report
+      # Step 6: Upload Playwright report
       - name: Upload Playwright Report
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4
