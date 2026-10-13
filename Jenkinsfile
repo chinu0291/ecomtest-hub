@@ -22,11 +22,25 @@ pipeline {
 
             steps {
 
-                echo 'Installing Playwright project dependencies'
+                echo 'Installing project dependencies'
 
                 bat 'npm ci'
 
                 echo 'Dependencies installed successfully'
+
+            }
+
+        }
+
+        stage('Install Playwright Browser') {
+
+            steps {
+
+                echo 'Installing Playwright Chromium browser'
+
+                bat 'npx playwright install chromium'
+
+                echo 'Chromium browser installation completed'
 
             }
 
