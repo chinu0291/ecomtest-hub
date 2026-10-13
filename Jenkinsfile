@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+        environment {
+        EXISTING_TEST_EMAIL = credentials('4b0bbc4d-79c8-4320-9a12-0d19cb8c59cd')
+    }
+
     stages {
 
         stage('Verify Environment') {
