@@ -1,13 +1,31 @@
 pipeline {
+
     agent any
 
     stages {
-        stage('Verify Jenkins Pipeline') {
+
+        stage('Verify Jenkins Environment') {
+
             steps {
-                echo 'Jenkins Pipeline started successfully!'
-                echo 'Welcome to Playwright QA Automation Practice.'
-                bat 'echo Running Jenkins on Windows'
+
+                echo '======================================'
+                echo 'Checking Jenkins Environment'
+                echo '======================================'
+
+                bat 'whoami'
+
+                bat 'node -v'
+
+                bat 'npm -v'
+
+                bat 'git --version'
+
+                echo 'Environment verification completed!'
+
             }
+
         }
+
     }
+
 }
