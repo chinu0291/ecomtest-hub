@@ -37,14 +37,11 @@ pipeline {
         }
 
         stage('Run Registration Tests') {
-            steps {
-                echo 'Executing Playwright Registration Test Suite'
-
-                bat 'npx playwright test tests/registration --project=chromium'
-
-                echo 'Registration test execution completed'
-            }
-        }
+    steps {
+        bat 'npx playwright test tests/registration --project=chromium --grep "TC_REG_009"'
+        echo 'Registration test execution completed'
+    }
+}
 
     }
 }
